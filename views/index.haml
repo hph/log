@@ -1,0 +1,28 @@
+!!! 5
+%html(lang='en')
+  %head
+    %meta(charset='utf-8')
+    %meta(content='width=device-width, initial-scale=1.0' name='viewport')
+    %title Status
+    %link(href='//netdna.bootstrapcdn.com/bootstrap/3.0.0-rc1/css/bootstrap.min.css' rel='stylesheet')
+    :css
+      body { padding: 30px; } 
+      h2 { font-size: 26px; } 
+      table:hover { cursor: default; }
+      .navbar { margin-bottom: 30px; } 
+  %body
+    .container
+      .navbar
+        .container
+          %a.navbar-brand(href='/') Status
+      - if @statuses.empty?
+        .alert.alert-info.alert-block
+          %button.close(type='button' data-dismiss='alert')
+          %h4 Note
+          %p There is no status.
+      - else
+        %table.table.table-hover
+          %tbody
+            - @statuses.each do |status|
+              %tr
+                %td #{status.status}

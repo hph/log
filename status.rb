@@ -2,8 +2,10 @@
 
 require 'httparty'
 
-def post_status(status, server='http://localhost:4567/')
-  HTTParty.post(server, {body: {status: status}})
+SERVER = ENV['STATUS_SERVER'] || 'http://localhost:4567/'
+
+def post_status(status)
+  HTTParty.post(SERVER, {body: {status: status}})
 end
 
 if __FILE__ == $0

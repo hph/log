@@ -21,7 +21,15 @@ Then you can simply run the following commands:
     bundle install
     createdb status
 
-You must also edit `config/database.yml` according to your needs.
+Now you will have to create a file called `database.yml` inside the `config`
+directory. It should look somewhat like this:
+
+development:
+  adapter:  'postgresql'
+  host:     'localhost'
+  username: 'your_username'
+  password: 'your_password'
+  database: 'status'
 
 [1] You could use SQLite or MySQL but you will have to install the gems yourself.
 The same goes for the Ruby version, if you want to use an older one, you can
