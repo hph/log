@@ -8,3 +8,8 @@ gem 'httparty'
 gem 'pg'
 gem 'sinatra'
 gem 'sinatra-activerecord'
+
+group :development do
+  gem 'awesome_print'
+  gem 'tux'
+end
