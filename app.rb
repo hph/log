@@ -7,7 +7,7 @@ require 'sinatra/activerecord'
 Dir['./models/*.rb', './config/*.rb'].each { |file| require file }
 
 get '/' do
-  @statuses = Status.select(:status).order('created_at DESC')
+  @statuses = Status.order('created_at DESC').pluck(:status)
   haml :index
 end
 
