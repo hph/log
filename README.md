@@ -35,6 +35,16 @@ development:
 The same goes for the Ruby version, if you want to use an older one, you can
 change the specified version in `Gemfile`.
 
+If you've installed the program on a server and want to post to it from your
+local machine, you must set the STATUS_SERVER environment variable to the
+address of the server. This can be done by adding a statement to your
+`~/.bashrc or ~/.zshrc file:
+
+    export STATUS_SERVER=http://example.com
+
+Now when you run `./status.rb <some message>` it will be posted to the
+specified address instead of localhost.
+
 Roadmap
 -------
 
