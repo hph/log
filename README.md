@@ -14,36 +14,48 @@ see the message you just posted.
 Installation
 ------------
 
-For Status to work, you must first install PostgreSQL and Ruby 2.0.0 [1].
+For Status to work, you must first install PostgreSQL [1] and Ruby 2.0.0.
 Then you can simply run the following commands:
 
     git clone https://github.com/hph/status.git
     bundle install
     createdb status
 
-Now you will have to create a file called `database.yml` inside the `config`
-directory. It should look somewhat like this:
+Now you will have to create a directory called `config` and inside it, a file
+called `database.yml`. It should look somewhat like this:
 
     development:
       adapter:  'postgresql'
       host:     'localhost'
-      username: 'your_username'
-      password: 'your_password'
+      username: 'your_db_username'
+      password: 'your_db_password'
       database: 'status'
 
-[1] You could use SQLite or MySQL but you will have to install the gems yourself.
-The same goes for the Ruby version, if you want to use an older one, you can
-change the specified version in `Gemfile`.
+This defines a database connection for the `development` environment. If you
+have defined another environment and you wish to use it instead, you must set
+the environment variable `STATUS` to the preferred environment [2].
 
 If you've installed the program on a server and want to post to it from your
 local machine, you must set the `STATUS_SERVER` environment variable to the
-address of the server. This can be done by adding a statement to your
-`~/.bashrc or ~/.zshrc file:
-
-    export STATUS_SERVER=http://example.com
+address of the server [3].
 
 Now when you run `./status.rb <some message>` it will be posted to the
 specified address instead of localhost.
+
+Installation Notes
+------------------
+
+1. You could use SQLite or MySQL but you will have to install the gems yourself.
+The same goes for the Ruby version, if you want to use an older one, you can
+change the specified version in `Gemfile`.
+
+2. Add a statement to your shell configuration file, e.g., `~/.zshrc`:
+
+    export STATUS=example
+
+3. Add a statement to your shell configuration file, e.g., `~/.zshrc`:
+
+    export STATUS_SERVER=http://example.com
 
 Roadmap
 -------

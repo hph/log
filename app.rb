@@ -4,7 +4,8 @@ require 'haml'
 require 'sinatra'
 require 'sinatra/activerecord'
 
-Dir['./models/*.rb', './config/*.rb'].each { |file| require file }
+require './models/status.rb'
+require './db/db.rb'
 
 get '/' do
   @statuses = Status.order('created_at DESC').pluck(:status)
