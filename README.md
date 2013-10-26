@@ -17,30 +17,28 @@ Installation
 For Status to work, you must first install PostgreSQL [1] and Ruby 2.0.0.
 Then you can simply run the following commands:
 
-    git clone https://github.com/hph/status.git
+    git clone https://github.com/hph/status.git && cd status
     bundle install
     createdb status
+    rake db:schema:load
 
 Now you will have to create a directory called `config` and inside it, a file
 called `database.yml`. It should look somewhat like this:
 
-    development:
+    default:
       adapter:  'postgresql'
       host:     'localhost'
       username: 'your_db_username'
       password: 'your_db_password'
       database: 'status'
 
-This defines a database connection for the `development` environment. If you
-have defined another environment and you wish to use it instead, you must set
-the environment variable `STATUS` to the preferred environment [2].
+This defines a database connection for the `default` environment. If you have
+defined another environment and you wish to use it instead, you must set the
+environment variable `STATUS_ENV` to the preferred environment [2].
 
 If you've installed the program on a server and want to post to it from your
 local machine, you must set the `STATUS_SERVER` environment variable to the
-address of the server [3].
-
-Now when you run `./status.rb <some message>` it will be posted to the
-specified address instead of localhost.
+address of the remote server (running `app.rb`) [3].
 
 Installation Notes
 ------------------
@@ -50,12 +48,10 @@ The same goes for the Ruby version, if you want to use an older one, you can
 change the specified version in `Gemfile`.
 
 2. Add a statement to your shell configuration file, e.g., `~/.zshrc`:
-
-    export STATUS=example
+`export STATUS_ENV=example`
 
 3. Add a statement to your shell configuration file, e.g., `~/.zshrc`:
-
-    export STATUS_SERVER=http://example.com
+`export STATUS_SERVER=http://example.com`
 
 Roadmap
 -------

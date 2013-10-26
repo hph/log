@@ -1,5 +1,5 @@
 if File.exists?('./config/database.yml')
-  db = YAML.load_file('./config/database.yml')[ENV['STATUS'] || 'development']
+  db = YAML.load_file('./config/database.yml')[ENV['STATUS_ENV'] || 'default']
   ActiveRecord::Base.establish_connection(
     adapter:  db['adapter'],
     host:     db['host'],
