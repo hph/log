@@ -24,19 +24,19 @@ Then you can simply run the following commands:
 Now you will have to create a file called `database.yml` inside the `config`
 directory. It should look somewhat like this:
 
-development:
-  adapter:  'postgresql'
-  host:     'localhost'
-  username: 'your_username'
-  password: 'your_password'
-  database: 'status'
+    development:
+      adapter:  'postgresql'
+      host:     'localhost'
+      username: 'your_username'
+      password: 'your_password'
+      database: 'status'
 
 [1] You could use SQLite or MySQL but you will have to install the gems yourself.
 The same goes for the Ruby version, if you want to use an older one, you can
 change the specified version in `Gemfile`.
 
 If you've installed the program on a server and want to post to it from your
-local machine, you must set the STATUS_SERVER environment variable to the
+local machine, you must set the `STATUS_SERVER` environment variable to the
 address of the server. This can be done by adding a statement to your
 `~/.bashrc or ~/.zshrc file:
 
