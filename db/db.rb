@@ -9,6 +9,5 @@ if File.exists?('./config/database.yml')
     encoding: 'utf8'
   )
 else
-  puts 'Fatal error - no database configuration specified.'
-  exit
+  abort 'Fatal error - no database configuration specified.'
 end

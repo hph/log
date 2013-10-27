@@ -8,6 +8,7 @@ gem 'httparty'
 gem 'pg'
 gem 'sinatra'
 gem 'sinatra-activerecord'
+gem 'thin'
 
 group :development do
   gem 'awesome_print'
