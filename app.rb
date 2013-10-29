@@ -7,6 +7,10 @@ require 'sinatra/activerecord'
 Dir['./db/db.rb', './models/*'].each { |file| require file }
 
 class App < Sinatra::Base
+  after do
+    ActiveRecord::Base.connection.close
+  end
+
   get '/' do
     @statuses = Status.order('created_at DESC').pluck(:status)
     haml :index
