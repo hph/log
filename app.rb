@@ -4,7 +4,8 @@ require 'haml'
 require 'sinatra/base'
 require 'sinatra/activerecord'
 
-Dir['./db/db.rb', './models/*'].each { |file| require file }
+require_relative 'db/db'
+Dir['./models/*'].each { |file| require file }
 
 class App < Sinatra::Base
   after do
