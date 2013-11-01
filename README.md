@@ -4,6 +4,19 @@ Log
 Collaborate with others by posting short messages via a comamnd-line interface
 to the web!
 
+The idea is that you can write short messages for anyone (you allow) to read. A
+poster might run (in the terminal):
+
+    log "Hello, World!"
+
+Log proceeds to post this to a server where the messages can be read from,
+either through the web interface or by commands:
+
+    log user
+
+Which will show the messages by that user. Note that user-specific
+functionality is not ready.
+
 Installation
 ------------
 
