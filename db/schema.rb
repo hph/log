@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 3) do
+ActiveRecord::Schema.define(version: 4) do
 
   create_table "statuses", force: true do |t|
     t.string   "status",     null: false
@@ -23,7 +23,8 @@ ActiveRecord::Schema.define(version: 3) do
   end
 
   create_table "users", force: true do |t|
-    t.string "name", null: false
+    t.string "name",          null: false
+    t.string "password_hash"
   end
 
 end
