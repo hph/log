@@ -1,5 +1,6 @@
 #!/usr/bin/env ruby
 
+require 'bcrypt'
 require 'haml'
 require 'sinatra/base'
 require 'sinatra/activerecord'
