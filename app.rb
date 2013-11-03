@@ -14,7 +14,7 @@ class App < Sinatra::Base
   end
 
   get '/' do
-    @statuses = Status.order('created_at DESC').pluck(:status)
+    @statuses = Status.all
     haml :index
   end
 

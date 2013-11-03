@@ -3,6 +3,10 @@ class Status < ActiveRecord::Base
   has_one :user, through: :user_status
   validates :status, presence: true
 
+  def self.default_scope
+    order('created_at DESC')
+  end
+
   def create
     self.created_at = Time.now
     super
