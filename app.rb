@@ -2,8 +2,9 @@
 
 require 'bcrypt'
 require 'haml'
-require 'sinatra/base'
 require 'sinatra/activerecord'
+require 'sinatra/base'
+require 'sinatra/json'
 
 require_relative 'db/db'
 Dir['./models/*'].each { |file| require file }
@@ -19,8 +20,7 @@ class App < Sinatra::Base
   end
 
   get '/user/:name' do |name|
-    @statuses = User.where(name: name).first.statuses
-    haml :index
+    json statuses: User.where(name: name).first.statuses
   end
 
   post '/' do

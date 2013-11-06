@@ -40,7 +40,9 @@ def process_opts(opts)
   elsif opts.message?
     post_status(opts[:server], opts[:message], opts[:user])
   elsif opts.user?
-    get_status(opts[:server], opts[:user])
+    get_status(opts[:server], opts[:user])['statuses'].each do |status|
+      puts status['status']
+    end
   end
 end
 
