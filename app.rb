@@ -18,8 +18,21 @@ class App < Sinatra::Base
     haml :index
   end
 
+  get '/user/:name' do |name|
+    @statuses = User.where(name: name).first.statuses
+    haml :index
+  end
+
   post '/' do
-    Status.create(status: params[:status])
+    if params[:user]
+      if params[:password]
+        User.create(name: params[:user], password: params[:password])
+      else
+        User.where(name: params[:user]).first.statuses.create(status: params[:status])
+      end
+    else
+      Status.create(status: params[:status])
+    end
   end
 end
 
