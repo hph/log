@@ -19,8 +19,13 @@ class App < Sinatra::Base
     haml :index
   end
 
-  get '/user/:name' do |name|
+  get '/user/:name.json' do |name|
     json statuses: User.where(name: name).first.statuses
+  end
+
+  get '/user/:name' do |name|
+    @statuses = User.where(name: name).first.statuses
+    haml :index
   end
 
   post '/' do

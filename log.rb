@@ -7,7 +7,7 @@ require 'slop'
 require_relative 'app'
 
 def get_status(server, user)
-  HTTParty.get("#{server}/user/#{user}")
+  HTTParty.get("#{server}/user/#{user}.json")
 end
 
 def post_status(server, status, user)
